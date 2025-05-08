@@ -15,11 +15,11 @@ export class GestionApiService {
   //Hacemos uso de BehaviorSubject tipo json (categoria y totalResults o undefined).
   //BehaviorSubject es un tipo especial de Observable que siempre tiene un valor actual y emite ese valor inmediatamente a los nuevos suscriptores. En este caso,
   //emite objetos de tipo "{ categoria: string; totalResults: number } | undefined"
-  private datosSubject: BehaviorSubject<{ categoria: string; totalResults: number }|undefined> = new BehaviorSubject<{ categoria: string; totalResults: number }|undefined>(undefined);
+  public datosSubject: BehaviorSubject<{ categoria: string; totalResults: number }|undefined> = new BehaviorSubject<{ categoria: string; totalResults: number }|undefined>(undefined);
   //Creamos el observable datos$ para gestionar los cambios que vienen desde la api.
   public datos$: Observable<{ categoria: string; totalResults: number }|undefined> = this.datosSubject.asObservable();
 
-  constructor(private leerArticulosServicioHttp: HttpClient) { }
+  constructor(public leerArticulosServicioHttp: HttpClient) { }
 
   public cargarCategoria(categoria: string) {
     //Realizamos la llamada api y la recogemos en un observable de tipo RespuestaNoticias

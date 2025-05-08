@@ -87,7 +87,7 @@ export class BarChartComponent implements OnInit {
   }
 
   //Método que crea la estructura inicial del gráfico y crea el canvas automático
-  private inicializarChart() {
+  public inicializarChart() {
     // Destruir el gráfico existente si existe
     //this.destroyChart();
   
@@ -178,11 +178,11 @@ export class BarChartComponent implements OnInit {
     this.chart.canvas.height = 100;
   }
   
-
+/*
   getChartImage(): string {
     // Obtener la representación de imagen base64 de la gráfica
     const base64Image = this.chart.toBase64Image();
     return base64Image;
   }
-
+*/
 }
